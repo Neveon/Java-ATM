@@ -90,7 +90,6 @@ public class AtmInterface {
 			} else if(option == 2) {
 				quit = true;
 			} else if (option == 3) {
-				System.out.println("Checking Account Unavailable\n");
 				// Check user savings account PIN - max 4 guesses - true/false returned
 				if(checkingAccount.checkPin()) {
 					// If user chooses to back, exits while loop, goes back to main loop
