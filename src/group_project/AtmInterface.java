@@ -90,13 +90,13 @@ public class AtmInterface {
 			} else if(option == 2) {
 				quit = true;
 			} else if (option == 3) {
-				// Check user savings account PIN - max 4 guesses - true/false returned
+				// Check user checking account PIN - max 4 guesses - true/false returned
 				if(checkingAccount.checkPin()) {
 					// If user chooses to back, exits while loop, goes back to main loop
 					boolean goBack = false;
 
 					while(!goBack) {
-						// Give current savings account balance and cash amount
+						// Give current checking account balance and cash amount
 						System.out.printf("\nYou currently have $%.2f in cash", cash);
 						System.out.printf("\nYour current Checking Account balance is: $%.2f\n", checkingAccount.getBalance());
 						System.out.printf("\n%-38s%s\n%-38s%s\n%s\n", "Enter 1 to Deposit", "Enter 2 to Quit", "Enter 3 to Withdrawal", "Enter 4 to Transfer", "Enter 5 to go to previous menu");
