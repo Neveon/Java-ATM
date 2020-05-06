@@ -3,6 +3,13 @@ package group_project;
 import java.util.Scanner;
 
 public class Checking extends Account {
+	
+	public Checking() {
+		System.out.println("Promotion: All KEAN BANK Checking Accounts have a $250 bonus.");
+		System.out.println("*********************************************************************");
+		// Checking starts at 250
+		setBalance(250);
+	}
 
 	// Check pin is 1234
 	public boolean checkPin() {
@@ -41,11 +48,14 @@ public class Checking extends Account {
 	}
 	
 	// Checking balance must be minimum $250 at all times
-	public boolean checkBalance(double MoneyToMove) {
+	public boolean checkBalance(double moneyToMove) {
 		// Savings - Check that balance is above 0 when moving funds
-		if(getBalance() - MoneyToMove > 250) {
+		if(getBalance() - moneyToMove >= 250 && moneyToMove > 0) {
 			System.out.println("Balance Approved for Transaction");
 			return true;
+		} else if(moneyToMove < 0.01) {
+			System.out.println("Must be greater than $1 for transaction approval");
+			return false;
 		} else {
 			System.out.println("WARNING: Checking cannot be less than $250.");
 			System.out.println("Transaction Denied");
@@ -75,7 +85,7 @@ public class Checking extends Account {
 			setBalance(getBalance() - cashToWithdraw);
 			
 			// Return cash amount to add to user wallet
-			System.out.printf("\n$%.2f received from ATM", cashToWithdraw);
+			System.out.printf("\nWithdrew $%.2f from ATM", cashToWithdraw);
 			return cashToWithdraw;
 		} else {
 			// In case of transaction being denied - return 0, no cash added

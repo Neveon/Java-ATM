@@ -11,6 +11,7 @@ public class AtmInterface {
 		System.exit(1);
 	}
 
+	// main() where it all starts
 	public static void main(String[] args) {
 		// Welcome to Kean Bank - Fancy printf maybe?
 		System.out.println("Welcome to KEAN BANK");

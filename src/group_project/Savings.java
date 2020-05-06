@@ -7,8 +7,7 @@ public class Savings extends Account {
 	// Constructor - When an object/instance of this class is created, this method runs automatically
 	public Savings() {
 		System.out.println("\n\n\n\n\n*********************************************************************");
-		System.out.println("Promotion: All KEAN BANK's Savings Accounts have a $2000 bonus.");
-		System.out.println("*********************************************************************");
+		System.out.println("Promotion: All KEAN BANK Savings Accounts have a $2000 bonus.");
 		// Savings balance starts at $2000
 		setBalance(2000);
 	}
@@ -54,6 +53,9 @@ public class Savings extends Account {
 		if(getBalance() - MoneyToMove > 0) {
 			System.out.println("Balance Approved for Transaction");
 			return true;
+		} else if(MoneyToMove < 0.01) {
+			System.out.println("Must be greater than $1 for transaction approval");
+			return false;
 		} else {
 			System.out.println("WARNING: Savings cannot be 0.");
 			System.out.println("Transaction Denied");
@@ -87,7 +89,7 @@ public class Savings extends Account {
 			setBalance(getBalance() - cashToWithdraw);
 			
 			// Return cash amount to add to user wallet
-			System.out.printf("\n$%.2f received from ATM", cashToWithdraw);
+			System.out.printf("\nWithdrew $%.2f from ATM", cashToWithdraw);
 			return cashToWithdraw;
 		} else {
 			// In case of transaction being denied - return 0, no cash added
